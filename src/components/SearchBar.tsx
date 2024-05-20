@@ -20,14 +20,15 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="d-flex align-items-center">
       <input
         type="text"
         value={query}
         onChange={handleSearch}
         placeholder="Search..."
+        className="form-control"
       />
-      <ul>
+      <ul className="list-unstyled ms-2">
         {results.map((item) => (
           <li key={item.id}>{item.title}</li>
         ))}

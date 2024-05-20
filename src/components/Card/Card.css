@@ -1,0 +1,13 @@
+.truncated-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: calc(1.2em * 3); /* Ajusta esto según la altura de la línea */
+}
+.card-img-top {
+  object-fit: contain;
+  object-position: center;
+  height: 100; /* Ajusta la altura según tus necesidades */
+}
