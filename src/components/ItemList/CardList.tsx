@@ -1,16 +1,16 @@
-import { items } from "../../data";
+import { Item } from "../../data";
 import Card from "../Card/Card";
 
-function CardList() {
+interface CardListProps {
+  products: Item[];
+}
+
+function CardList({ products }: CardListProps) {
   return (
-    <div className="container">
-      <div className="row">
-        {items.map((item) => (
-          <div key={item.id} className="col-md-3 mb-4">
-            <Card item={item} />
-          </div>
-        ))}
-      </div>
+    <div className="card-list">
+      {products.map((item) => (
+        <Card key={item.id} item={item} />
+      ))}
     </div>
   );
 }
