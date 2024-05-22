@@ -1,5 +1,6 @@
 import { Item } from "../../data";
 import Card from "../Card/Card";
+import "./CardList.css";
 
 interface CardListProps {
   products: Item[];
