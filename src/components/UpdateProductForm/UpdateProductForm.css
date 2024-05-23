@@ -1,0 +1,58 @@
+.update-product-form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.update-product-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.update-product-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.update-product-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.update-product-form input[type="text"],
+.update-product-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.update-product-form input[type="text"]:focus,
+.update-product-form input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.update-product-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-product-form button:hover {
+  background-color: #0056b3;
+}
