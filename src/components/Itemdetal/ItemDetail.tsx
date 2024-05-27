@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Item } from "../../data";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import { CartContext, CartItem } from "../../context/CartContext";
 import "./ItemDetail.css";
 
 interface ItemDetailProps {
@@ -10,9 +11,25 @@ interface ItemDetailProps {
 
 function ItemDetail({ item }: ItemDetailProps) {
   const [quantity, setQuantity] = useState(0);
+  const cartContext = useContext(CartContext);
+
+  if (!cartContext) {
+    return <div>Error: CartContext not found</div>;
+  }
+
+  const { addItem } = cartContext;
 
   const handleOnAdd = (quantity: number) => {
     setQuantity(quantity);
+
+    const cartItem: CartItem = {
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      quantity,
+    };
+
+    addItem(cartItem, quantity);
   };
 
   return (
