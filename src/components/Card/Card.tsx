@@ -19,7 +19,7 @@ function Card({ item }: CardProps) {
         <h5 className="card-title">{item.title}</h5>
         <p className="card-text truncated-description">{item.description}</p>
         <small className="text-body-secondary">${item.price}</small>
-        <Link to={`/item/${item.id}`} className="btn btn-primary mt-2">
+        <Link to={`/item/${item._id}`} className="btn btn-primary mt-2">
           Detalle
         </Link>
       </div>

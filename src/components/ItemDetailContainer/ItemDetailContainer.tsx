@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { items, Item } from "../../data";
+import { Item } from "../../data";
 import ItemDetail from "../Itemdetal/ItemDetail";
-
-const getProductById = (prodId: number): Promise<Item | undefined> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(items.find((prod) => prod.id === prodId));
-    }, 500);
-  });
-};
+import { products } from "../../api/products";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState<Item | null>(null);
@@ -21,9 +14,8 @@ const ItemDetailContainer = () => {
     console.log("ingresa use effect");
     if (itemId) {
       console.log(itemId);
-      const prodId = parseInt(itemId);
-      console.log(prodId);
-      getProductById(prodId)
+      products
+        .getById(itemId)
         .then((response) => {
           if (response) {
             setProduct(response);
