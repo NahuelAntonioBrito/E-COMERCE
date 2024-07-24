@@ -8,17 +8,12 @@ interface CardProps {
 
 function Card({ item }: CardProps) {
   return (
-    <div className="card h-100">
-      <img
-        src={item.thumbnails[0]}
-        className="card-img-top"
-        alt={item.title}
-        style={{ height: "200px", objectFit: "scale-down" }}
-      />
-      <div className="card-body">
-        <h5 className="card-title">{item.title}</h5>
+    <div className="itemCard">
+      <img src={item.thumbnails[0]} className="card-img-top" alt={item.title} />
+      <div className="cardBody">
+        <h5 className="cardTitle">{item.title}</h5>
         <p className="card-text truncated-description">{item.description}</p>
-        <small className="text-body-secondary">${item.price}</small>
+        <small className="cardText-body-secondary">${item.price}</small>
         <Link to={`/item/${item._id}`} className="btn btn-primary mt-2">
           Detalle
         </Link>

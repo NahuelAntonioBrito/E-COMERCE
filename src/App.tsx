@@ -5,14 +5,17 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import ProductManager from "./components/ProductManager/ProductManager";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import UserRegistrationForm from "./components/UserRegistrationForm/UserRegistrationForm";
+import LoginForm from "./components/LoginForm/LoginForm";
 import { CartProvider } from "./context/CartProvider";
+import "./App.css";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <CartProvider>
-          <NavBar />
+    <BrowserRouter>
+      <CartProvider>
+        <NavBar />
+        <div className="content">
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route
@@ -23,11 +26,13 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/ProductManager" element={<ProductManager />} />
+            <Route path="/register" element={<UserRegistrationForm />} />
+            <Route path="/login" element={<LoginForm />} />
             <Route path="*" element={<h1>404 NOT FOUND</h1>} />
           </Routes>
-        </CartProvider>
-      </BrowserRouter>
-    </>
+        </div>
+      </CartProvider>
+    </BrowserRouter>
   );
 }
 

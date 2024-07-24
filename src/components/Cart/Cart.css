@@ -1,15 +1,104 @@
-.cart {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Aplica el fondo al body cuando estés en la ruta de carrito */
+body.cart-page {
+  background-color: #141c29;
 }
 
-.cart-item {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+/* Estilos del componente Cart */
+.cart {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #141c29;
+  color: #fff;
+}
+
+.table-cart {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table-cart th,
+.table-cart td {
+  padding: 10px;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.table-cart th {
+  background-color: #333;
+  color: #fff;
+}
+
+.table-cart td {
+  color: #ccc;
+}
+
+.table-cart tfoot tr {
+  background-color: #333;
+}
+
+.table-cart tfoot td {
+  color: #fff;
+}
+
+.tfoot-left {
+  text-align: right;
+  font-weight: bold;
 }
 
 .cart-summary {
   margin-top: 20px;
+  text-align: center;
+}
+
+.removeButton {
+  background-color: brown;
+}
+
+.removeButton:hover {
+  background-color: #dc3545;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre los botones */
+}
+
+.clearButton,
+.option {
+  width: 200px;
+  height: 40px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearButton {
+  background-color: brown;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.clearButton:hover {
+  background-color: #dc3545;
+}
+
+.option {
+  background-color: #218838;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: #28a745;
 }

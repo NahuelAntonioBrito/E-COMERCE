@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { products } from "../../api/products";
 import { Item } from "../../data";
 import "./UpdateProductForm.css";
 
-const UpdateProductForm = () => {
+const UpdateProductForm = ({ productId }: { productId: string }) => {
   const [product, setProduct] = useState<Item | null>(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const fetchedProduct = await products.getById(productId);
+        setProduct(fetchedProduct);
+      } catch (error) {
+        console.error("Error al cargar el producto:", error);
+      }
+    };
+
+    if (productId) {
+      fetchProduct();
+    }
+  }, [productId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (product) {
       const { name, value } = e.target;
-      if (name === "urlImg") {
+      if (name === "price" || name === "stock") {
+        setProduct({ ...product, [name]: Number(value) });
+      } else if (name === "urlImg") {
         setProduct({ ...product, thumbnails: [value] });
       } else {
         setProduct({ ...product, [name]: value });
@@ -18,10 +34,15 @@ const UpdateProductForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (product) {
-      console.log("Producto actualizado:", product);
+      try {
+        const response = await products.updateProduct(productId, product);
+        console.log("Producto actualizado:", response);
+      } catch (error) {
+        console.error("Error al actualizar el producto:", error);
+      }
     }
   };
 

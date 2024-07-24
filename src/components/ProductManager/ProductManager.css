@@ -42,3 +42,18 @@
 .form-selector .active {
   background-color: #0056b3;
 }
+
+/* Estilos para el selector de productos */
+.product-selector {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.product-selector:focus {
+  border-color: #007bff;
+  outline: none;
+}

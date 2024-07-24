@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { products } from "../../api/products";
 import { Item } from "../../data";
 import "./AddProductForm.css";
 
 const AddProductForm = () => {
-  const [product, setProduct] = useState<Item>({
-    id: 0,
+  const [product, setProduct] = useState<Omit<Item, "_id" | "id">>({
     title: "",
     description: "",
     price: 0,
@@ -17,28 +17,33 @@ const AddProductForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    if (name === "urlImg") {
+    if (name === "price" || name === "stock") {
+      setProduct({ ...product, [name]: Number(value) });
+    } else if (name === "urlImg") {
       setProduct({ ...product, thumbnails: [value] });
     } else {
       setProduct({ ...product, [name]: value });
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Lógica para agregar el producto
-    console.log("Producto agregado:", product);
-    setProduct({
-      id: 0,
-      title: "",
-      description: "",
-      price: 0,
-      thumbnails: [],
-      status: true,
-      code: "",
-      stock: 0,
-      category: "",
-    });
+    try {
+      const response = await products.addProduct(product);
+      console.log("Producto agregado:", response);
+      setProduct({
+        title: "",
+        description: "",
+        price: 0,
+        thumbnails: [],
+        status: true,
+        code: "",
+        stock: 0,
+        category: "",
+      });
+    } catch (error) {
+      console.error("Error al agregar el producto:", error);
+    }
   };
 
   return (

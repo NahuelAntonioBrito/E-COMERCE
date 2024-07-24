@@ -1,46 +1,43 @@
-.truncated-description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: calc(1.2em * 3); /* Ajusta esto según la altura de la línea */
-}
-.card-img-top {
-  object-fit: contain;
-  object-position: center;
-  height: 100; /* Ajusta la altura según tus necesidades */
-}
-
-/* Card.css */
-.card {
-  border: 1px solid #ddd;
+.itemCard {
+  background-color: #2d4263;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
 
 .card-img-top {
-  border-bottom: 1px solid #ddd;
+  object-fit: contain;
+  object-position: center;
+  height: 200px;
 }
 
-.card-body {
+.cardBody {
   padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
 }
 
-.card-title {
+.cardTitle {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
+  color: #ccc;
+  text-align: center;
+}
+
+.cardTitle.long-title {
+  text-align: left;
 }
 
 .card-text {
   font-size: 1rem;
-  color: #333;
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 .truncated-description {
@@ -49,12 +46,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 4.5em;
+  height: calc(1.2em * 3);
 }
 
-.text-body-secondary {
+.cardText-body-secondary {
   font-size: 0.875rem;
-  color: #666;
+  color: #ccc;
+  text-align: center;
 }
 
 .btn {
@@ -68,8 +66,15 @@
   border: none;
   border-radius: 4px;
   transition: background-color 0.3s;
+  margin-top: 1rem;
 }
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+.itemCard:hover {
+  transform: translateY(-5px);
+  background-color: #11294d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

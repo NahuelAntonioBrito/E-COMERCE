@@ -3,15 +3,13 @@ import { useParams } from "react-router-dom";
 import { Item } from "../../data";
 import ItemDetail from "../Itemdetal/ItemDetail";
 import { products } from "../../api/products";
+import "./ItemDetailContainer.css";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState<Item | null>(null);
   const { itemId } = useParams<{ itemId: string }>();
 
-  console.log("useParams result:", itemId);
-
   useEffect(() => {
-    console.log("ingresa use effect");
     if (itemId) {
       console.log(itemId);
       products

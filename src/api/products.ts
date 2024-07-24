@@ -16,4 +16,15 @@ export const products = {
       .get(`${endpoint}/category/${categoryId}`)
       .then((response) => response.data.products);
   },
+  addProduct: async function (product: Item) {
+    return api.post(endpoint, product).then((response) => response.data);
+  },
+  updateProduct: async function (id: string, updateData: Partial<Item>) {
+    return api
+      .put(`${endpoint}/${id}`, updateData)
+      .then((response) => response.data);
+  },
+  deleteProduct: async function (id: string) {
+    return api.delete(`${endpoint}/${id}`).then((response) => response.data);
+  },
 };

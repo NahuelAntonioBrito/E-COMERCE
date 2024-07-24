@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import cart from "../../../public/carrito-de-compras.png";
 import { Link } from "react-router-dom";
+import "./CartWidget.css"; // Import the CSS file
 
 const CartWidget = () => {
   const cartContext = useContext(CartContext);
@@ -13,15 +14,13 @@ const CartWidget = () => {
   const { totalQuantity } = cartContext;
 
   return (
-    <div className="d-flex align-items-center">
-      <Link to="/cart">
-        <img
-          src={cart}
-          alt="CartWidget"
-          style={{ height: "40px", width: "40px" }}
-        />
+    <div className="cart-widget-container">
+      <Link to="/cart" className="cart-link">
+        <img src={cart} alt="CartWidget" className="cart-icon" />
+        {totalQuantity > 0 && (
+          <span className="cart-count">{totalQuantity}</span>
+        )}
       </Link>
-      <span className="ms-2">{totalQuantity}</span>
     </div>
   );
 };
