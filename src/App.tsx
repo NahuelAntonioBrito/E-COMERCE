@@ -7,6 +7,7 @@ import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import UserRegistrationForm from "./components/UserRegistrationForm/UserRegistrationForm";
 import LoginForm from "./components/LoginForm/LoginForm";
+import UserProfile from "./components/UserProfile/UserProfile";
 import { CartProvider } from "./context/CartProvider";
 import "./App.css";
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/ProductManager" element={<ProductManager />} />
             <Route path="/register" element={<UserRegistrationForm />} />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/user-profile" element={<UserProfile />} />
             <Route path="*" element={<h1>404 NOT FOUND</h1>} />
           </Routes>
         </div>

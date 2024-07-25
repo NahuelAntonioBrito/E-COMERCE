@@ -1,29 +1,23 @@
 import api from "./axios";
-const endpoint = "sessions";
+const endpoint = "users";
 
-interface LoginData {
+interface User {
+  userName: string;
   email: string;
-  password: string;
+  age: number;
+  role: string;
 }
 
-export const registerUser = async (userData: any) => {
+export const userProfile = async (): Promise<User | null> => {
   try {
-    const response = await api.post(`${endpoint}/register`, userData);
-    return response.data;
-  } catch (error) {
-    console.error("Error registering user:", error);
-    throw error;
-  }
-};
+    const response = await api.get(`/${endpoint}/current`);
+    const user = response.data.user;
 
-export const loginUser = async (loginData: LoginData) => {
-  try {
-    console.log("logindata: ", loginData);
-    const response = await api.post(`${endpoint}/login`, loginData);
+    localStorage.setItem("loggedUser", JSON.stringify(user));
 
-    return response.data;
+    return user;
   } catch (error) {
-    console.error("Error logging in:", error);
-    throw error;
+    console.error("Error fetching user profile:", error);
+    return null;
   }
 };

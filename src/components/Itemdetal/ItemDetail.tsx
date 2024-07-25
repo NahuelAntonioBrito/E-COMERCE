@@ -27,6 +27,7 @@ function ItemDetail({ item }: ItemDetailProps) {
       title: item.title,
       price: item.price,
       quantity,
+      img: item.thumbnails[0],
     };
 
     addItem(cartItem, quantity);

@@ -21,7 +21,7 @@ const Cart: React.FC = () => {
 
   if (cart.length === 0) {
     return (
-      <div>
+      <div className="cartsEmpty">
         <h1>No hay productos en el carrito</h1>
         <Link to="/" className="option">
           Productos
@@ -49,7 +49,7 @@ const Cart: React.FC = () => {
           {cart.map((item) => (
             <tr key={item.id}>
               <td>
-                <img src={item.img} alt={item.title} />
+                <img src={item.img} alt={item.title} className="cartImage" />
               </td>
               <td>{item.title}</td>
               <td>${item.price}</td>
@@ -68,9 +68,9 @@ const Cart: React.FC = () => {
         <tfoot>
           <tr>
             <td colSpan={4} className="tfoot-left">
-              Total:
+              Total
             </td>
-            <td>${total.toFixed(4)}</td>
+            <td>${total.toFixed(2)}</td>
           </tr>
         </tfoot>
       </table>

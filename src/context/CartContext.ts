@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 export interface CartItem {
   id: number;
-  img: string;
+  img: string; // Imagen del producto
   title: string;
   price: number;
   quantity: number;

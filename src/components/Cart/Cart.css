@@ -1,9 +1,7 @@
-/* Aplica el fondo al body cuando estés en la ruta de carrito */
 body.cart-page {
   background-color: #141c29;
 }
 
-/* Estilos del componente Cart */
 .cart {
   padding: 20px;
   border-radius: 8px;
@@ -40,6 +38,11 @@ body.cart-page {
 
 .table-cart tfoot td {
   color: #fff;
+}
+
+.cartImage {
+  width: 100px;
+  height: 100px;
 }
 
 .tfoot-left {
@@ -101,4 +104,30 @@ body.cart-page {
 
 .option:hover {
   background-color: #28a745;
+}
+
+.cartsEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartsEmpty h1 {
+  padding: 20px;
+  color: white;
+}
+
+.cartsEmpty .option {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cartsEmpty .option:hover {
+  background-color: #0056b3;
 }

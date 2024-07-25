@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate
-import { registerUser } from "../../api/user";
+import { registerUser } from "../../api/session";
 import "./UserRegistrationForm.css";
 
 const UserRegistrationForm: React.FC = () => {

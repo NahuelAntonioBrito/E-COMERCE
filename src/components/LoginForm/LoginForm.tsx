@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { loginUser } from "../../api/user";
+import { loginUser } from "../../api/session";
 import "./LoginForm.css";
 
 const LoginForm: React.FC = () => {
