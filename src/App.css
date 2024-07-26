@@ -1,4 +1,76 @@
 .content {
   padding-top: 80px;
   background-color: #141c29;
+  transition: filter 0.4s;
+}
+
+.main-component {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.content.blurred {
+  filter: blur(4px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(211, 211, 211, 0.5); /* light gray overlay */
+  z-index: 1000;
+  pointer-events: none; /* Allows clicks to pass through */
+}
+
+.navbar {
+  background-color: #000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.kame-house-container {
+  display: flex;
+  position: absolute;
+  left: 10px;
+}
+
+.kame-house-letter {
+  font-size: 25px;
+  color: #add8e6;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 14px;
+  position: absolute;
+  left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover .logo {
+  transform: translateX(200px);
+}
+
+.navbar-brand:hover .kame-house-letter {
+  opacity: 1;
+  transition-delay: 0.1s;
 }

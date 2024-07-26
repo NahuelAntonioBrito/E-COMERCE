@@ -8,7 +8,7 @@ interface User {
   role: string;
 }
 
-export const userProfile = async (): Promise<User | null> => {
+const userProfile = async (): Promise<User | null> => {
   try {
     const response = await api.get(`/${endpoint}/current`);
     const user = response.data.user;
@@ -21,3 +21,5 @@ export const userProfile = async (): Promise<User | null> => {
     return null;
   }
 };
+
+export default userProfile;

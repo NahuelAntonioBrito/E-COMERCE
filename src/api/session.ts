@@ -27,3 +27,13 @@ export const loginUser = async (loginData: LoginData) => {
     throw error;
   }
 };
+
+export const logoutUser = async () => {
+  try {
+    const response = await api.get(`${endpoint}/logout`);
+    return response.data;
+  } catch (error) {
+    console.error("Error logging out:", error);
+    throw error;
+  }
+};

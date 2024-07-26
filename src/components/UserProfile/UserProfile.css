@@ -41,3 +41,31 @@
   margin: 0;
   color: #777;
 }
+
+.logout-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #800000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.logout-button:hover {
+  background-color: #ff0000;
+}
+.loginLink {
+  color: antiquewhite;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+}
+
+.loginLink:hover {
+  color: cadetblue;
+  transform: scale(1.05);
+}

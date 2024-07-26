@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./UserProfile.css";
-import { userProfile } from "../../api/user";
+import userProfile from "../../api/user";
+import { logoutUser } from "../../api/session";
+import { Link } from "react-router-dom";
 
 interface User {
   userName: string;
@@ -29,8 +31,24 @@ const UserProfile: React.FC = () => {
     fetchUserProfile();
   }, []);
 
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      localStorage.removeItem("loggedUser");
+      window.location.href = "/login";
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <div className="page-container">
+        <Link to="/login" className="loginLink">
+          <h1>You need logged</h1>
+        </Link>
+      </div>
+    );
   }
 
   return (
@@ -53,6 +71,9 @@ const UserProfile: React.FC = () => {
           <label>Role:</label>
           <p>{user.role}</p>
         </div>
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );

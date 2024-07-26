@@ -1,0 +1,31 @@
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Start hidden off-screen */
+  height: 100%;
+  background-color: #add8e6;
+  transition: left 0.4s;
+  z-index: 1001;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu-content {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 20px; /* Adjust top padding to separate from navbar */
+}
+
+.side-menu-content a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 0;
+  margin-bottom: 10px; /* Add margin between links */
+  transition: color 0.3s;
+}
+
+.side-menu-content a:hover {
+  color: white;
+}
